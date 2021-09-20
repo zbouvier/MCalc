@@ -32,5 +32,6 @@ if key in KEYS:
     score = BASE + KEYSTONE_LEVEL*level + bonus_score
     print("Your score will between: ", score-15, " and ", score+7)
     print("The score for beating it precisely on time is: ", score)
+    print("Secondary highest score would make it: ", score*0.34)
 else:
     print("Please enter a valid key")
