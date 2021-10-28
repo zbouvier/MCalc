@@ -12,15 +12,9 @@ KEYS = {
     "NW": 36,
     "TOP": 38
 }
-print('Here are your options!')
-for name, _ in KEYS.items():
-    print(name)
 
-key = input("What key are you running?")
-
-
-if key in KEYS:
-    level = int(input("What level are you running?"))
+def calcScore(level):
+    print(level)
     bonus_score = 0
     if level >= 10:
         bonus_score = AFFIX_LEVEL*3+SEASONAL_AFFIX_LEVEL
@@ -29,8 +23,4 @@ if key in KEYS:
     elif level >= 4:
         bonus_score = AFFIX_LEVEL*2
     score = BASE + KEYSTONE_LEVEL*level + bonus_score
-    print("Your score will between: ", score-15, " and ", score+7)
-    print("The score for beating it precisely on time is: ", score)
-    print("Secondary highest score would make it: ", score*0.34)
-else:
-    print("Please enter a valid key")
+    return (score-15, score+7, score, score*0.34)
