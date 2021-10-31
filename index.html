@@ -9,6 +9,7 @@
     <div class="slidecontainer">
         <input type="range" min="2" max="30" value="1" class="slider" id="myRange" oninput="calcScore(value)">
     </div>
+
     <span id="demo">2</span>
     <br>
     <span id="line1"></span>
@@ -16,6 +17,9 @@
     <span id="line2"></span>
     <br>
     <span id="line3"></span>
+
+    
+    
     <script>
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
@@ -25,7 +29,12 @@
         output.innerHTML = this.value;
         calcScore(this.value)
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            calcScore(2);
+        });
     </script>
+
     <script>
         function calcScore(level)
         {
@@ -34,6 +43,7 @@
             var AFFIX_LEVEL = 7.5
             var SEASONAL_AFFIX_LEVEL = 15
             var bonus_score = 0
+
             if(level >= 10)
             {
                 bonus_score = AFFIX_LEVEL*3+SEASONAL_AFFIX_LEVEL
@@ -49,6 +59,7 @@
                 bonus_score = AFFIX_LEVEL*2
             }
             score = BASE + KEYSTONE_LEVEL*level + bonus_score
+
             document.getElementById("line1").innerHTML = "Your score will between: " + String( score-15) +  " and " +  String(score+7);
             document.getElementById("line2").innerHTML = "The score for beating it precisely on time is: " + String( score );
             document.getElementById("line3").innerHTML = "Secondary highest score would make it: " + String(parseInt(score*0.34));
