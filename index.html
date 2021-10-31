@@ -11,23 +11,24 @@
           <label for={{ key }}>{{ key }}</label><br>
 
         {% endfor %} -->
+    <body class="bg-image">
+        <div class="center">
+            <h1>World of Warcraft Mythic+ Rating Calculator</h1>
+            <p>Slide the slider to find your score</p>
+            
+            <div class="slidecontainer">
+                <input type="range" min="2" max="30" value="1" class="slider" id="myRange" oninput="calcScore(value)">
+            </div>
 
-    <div class="center">
-        <h1>World of Warcraft Mythic+ Rating Calculator</h1>
-        <p>Slide the slider to find your score</p>
-        
-        <div class="slidecontainer">
-            <input type="range" min="2" max="30" value="1" class="slider" id="myRange" oninput="calcScore(value)">
+            <span id="demo">2</span>
+            <br>
+            <span id="line1"></span>
+            <br>
+            <span id="line2"></span>
+            <br>
+            <span id="line3"></span>
         </div>
-
-        <span id="demo">2</span>
-        <br>
-        <span id="line1"></span>
-        <br>
-        <span id="line2"></span>
-        <br>
-        <span id="line3"></span>
-    </div>
+    </body>
 
     <script>
         var slider = document.getElementById("myRange");
