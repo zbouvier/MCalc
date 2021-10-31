@@ -1,5 +1,5 @@
-How to run:
+# MCalc
+MCalc is a World of Warcraft Mythic+ rating Caculator <a href="https://keyscore.us/">website</a>.
 
-``` py calc.py ```
-
-Then choose a key, choose a level and your score will be outputted.
+## How to use:
+go to <a href="https://keyscore.us/">keyscore.us</a> and fiddle with the slider

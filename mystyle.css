@@ -2,3 +2,15 @@
     text-align: center;
     margin: auto;
 }
+
+.bg-image {
+    background-image: url(torghast.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body{
+    color: white;
+    font-size: larger;
+}
