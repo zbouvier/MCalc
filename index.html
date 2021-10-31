@@ -1,25 +1,33 @@
 <!doctype html>
 <html>
+    <head>
+        <title>World of Warcraft Mythic+ Calculator</title>
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    
     <!-- <p>Please select your key</p>
         {% for key, value in y.items() %}
           <input type="radio" id="{{key}}" name="{{key}}" value={{ value }} onchange="calcScore({{slider}})">
           <label for={{ key }}>{{ key }}</label><br>
 
         {% endfor %} -->
-    <div class="slidecontainer">
-        <input type="range" min="2" max="30" value="1" class="slider" id="myRange" oninput="calcScore(value)">
+
+    <div class="center">
+        <h1>World of Warcraft Mythic+ Rating Calculator</h1>
+        <p>Slide the slider to find your score</p>
+        <div class="slidecontainer">
+            <input type="range" min="2" max="30" value="1" class="slider" id="myRange" oninput="calcScore(value)">
+        </div>
+
+        <span id="demo">2</span>
+        <br>
+        <span id="line1"></span>
+        <br>
+        <span id="line2"></span>
+        <br>
+        <span id="line3"></span>
     </div>
 
-    <span id="demo">2</span>
-    <br>
-    <span id="line1"></span>
-    <br>
-    <span id="line2"></span>
-    <br>
-    <span id="line3"></span>
-
-    
-    
     <script>
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
@@ -60,12 +68,18 @@
             }
             score = BASE + KEYSTONE_LEVEL*level + bonus_score
 
-            document.getElementById("line1").innerHTML = "Your score will between: " + String( score-15) +  " and " +  String(score+7);
-            document.getElementById("line2").innerHTML = "The score for beating it precisely on time is: " + String( score );
-            document.getElementById("line3").innerHTML = "Secondary highest score would make it: " + String(parseInt(score*0.34));
+            document.getElementById("line1").innerHTML = "Your score will between: " + formatScore(score-15) +  " and " +  formatScore(score+7);
+            document.getElementById("line2").innerHTML = "The score for beating it precisely on time is: " + formatScore( score );
+            document.getElementById("line3").innerHTML = "Secondary highest score would make it: " + formatScore(parseInt(score*0.34));
             console.log("Your score will between: ", score-15, " and ", score+7)
             console.log()
             console.log("Secondary highest score would make it: ", score*0.34)
+        }
+        
+        //takes in an int and outputs a string that always has decimal places
+        function formatScore(score){
+            var out = ( score * 100 / 100).toFixed(1)
+            return String(out)
         }
     </script>
 </html>
